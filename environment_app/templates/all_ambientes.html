@@ -1,0 +1,29 @@
+
+{% extends "master.html" %}
+
+{% block title %}
+  Aplicativos con ambientes QA
+{% endblock %}
+
+
+{% block content %}
+
+{% comment %}   <p><a href="/">HOME</a></p>
+
+  <h1>PLATAFORMAS</h1>
+  
+  <ul>
+    {% for x in myplatforms %}
+    <li><a href="detalles/{{ x.id_plataforma}}">{{ x.nombre_plataforma }} {{ x.tipo_servidor_plataforma }}</a></li>
+    {% endfor %}
+  </ul> {% endcomment %}
+
+  <div class="mycard">
+    <h1>PLATAFORMAS</h1>
+    <ul>
+        {% for x in myplatforms %}
+        <li onclick="window.location = 'detalles/{{ x.id_plataforma}}'">{{ x.nombre_plataforma }}</li>
+        {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

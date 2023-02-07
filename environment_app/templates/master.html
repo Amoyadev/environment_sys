@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'mystyles.css' %}"> 
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        <div class="topnav">
+            <a href="/">HOME</a> |
+            <a href="/ambienteQA">APLICATIVOS QA</a>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+        
+        <script src="" async defer></script>
+    </body>
+</html>

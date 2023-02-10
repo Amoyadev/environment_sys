@@ -1,5 +1,5 @@
 from django.db import models
-import mysql.connector
+
 
 # Create your models here.
 class Departamento(models.Model):
@@ -133,30 +133,3 @@ class Sw(models.Model):
         managed = False
         db_table = 'sw'
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="",
-  database="inventario_sistema"
-)
-
-mycursor = mydb.cursor()
-
-sql = "SELECT \
-  Sistema.nombre_sistema AS nombre_sistema \
-  Modulo.nombre_modulo AS nombre_modulo \
-  Submodulo.nombre_submodulo AS nombre_submodulo \
-  Plataforma.nombre_plataforma AS nombre_plataforma \
-  Plataforma.tipo_ambiente_plataforma AS ambiente \
-  Plataforma.tipo_servidor_plataforma AS tipo_servidor \
-  FROM Plataforma \
-  INNER JOIN Submodulo ON Submodulo.id_submodulo = Plataforma.id_submodulo \
-  INNER JOIN Modulo ON Modulo.id_modulo = Plataforma.id_modulo \
-  INNER JOIN Sistema ON Sistema.id_sistema = Plataforma.id_sistema" \
-
-mycursor.execute(sql)
-
-myresult = mycursor.fetchall()
-
-for x in myresult:
-  print(x)

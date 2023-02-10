@@ -8,22 +8,34 @@
 
 {% block content %}
 
-{% comment %}   <p><a href="/">HOME</a></p>
-
-  <h1>PLATAFORMAS</h1>
-  
-  <ul>
-    {% for x in myplatforms %}
-    <li><a href="detalles/{{ x.id_plataforma}}">{{ x.nombre_plataforma }} {{ x.tipo_servidor_plataforma }}</a></li>
-    {% endfor %}
-  </ul> {% endcomment %}
-
-  <div class="mycard">
+<!--   <div class="mycard">
     <h1>PLATAFORMAS</h1>
     <ul>
-        {% for x in myplatforms %}
-        <li onclick="window.location = 'detalles/{{ x.id_plataforma}}'">{{ x.nombre_plataforma }}</li>
+        {% for x in plataformas %}
+        <li onclick="window.location = 'detalles/{{ x.id_plataforma}}'">
+          {{ x.id_plataforma }} - {{ x.nombre_plataforma }} - {{ x.id_sistema.nombre_sistema }}
+        </li>
         {% endfor %}
     </ul>
-  </div>
+  </div> -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre Plataforma</th>
+        <th>Sistema</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in plataformas %}
+      <tr onclick="window.location = 'detalles/{{ x.id_plataforma }}'">
+        <td>{{ x.id_plataforma }}</td>
+        <td>{{ x.nombre_plataforma }}</td>
+        <td>{{ x.id_sistema.nombre_sistema }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}

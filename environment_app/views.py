@@ -42,7 +42,6 @@ for x in myresult:
     return HttpResponse(template.render()) """
 
 
-
 """ def mostrar_atributos(request):
     sistemas = Sistema.objects.all()
     modulos = Modulo.objects.all()
@@ -81,6 +80,7 @@ def plataformas(request):
     }
     return HttpResponse(template.render(context, request)) """
 
+
 def plataformas(request):
     """ plataformas = Plataforma.objects.select_related('id_modulo', 'id_submodulo', 'id_sistema').all().values() """
     plataformas = Plataforma.objects.select_related('id_sistema').all()
@@ -90,17 +90,26 @@ def plataformas(request):
     }
     """ return HttpResponse(template.render(context, request)) """
     return render(request, 'all_ambientes.html', context)
-  
+
+
 def detalles(request, id_plataforma):
-  myplatform = Plataforma.objects.get(id_plataforma=id_plataforma)
-  template = loader.get_template('detalles.html')
-  context = {
-    'myplatform': myplatform,
-  }
-  return HttpResponse(template.render(context, request))
+    # myplatform = Plataforma.objects.select_related('sw_set').all()
+    myplatform = Plataforma.objects.get(id_plataforma=id_plataforma)
+
+    sw = myplatform.sw_set.all()  # Here is SW
+    ip = sw.first().ip_set.all()  # Here is ip
+
+    print(sw)
+    print(ip)
+
+    template = loader.get_template('detalles.html')
+    context = {
+        'myplatform': myplatform,
+
+    }
+    return HttpResponse(template.render(context, request))
+
 
 def main(request):
-  template = loader.get_template('main.html')
-  return HttpResponse(template.render())
-
-
+    template = loader.get_template('main.html')
+    return HttpResponse(template.render())

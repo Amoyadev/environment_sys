@@ -9,21 +9,25 @@
 {% block content %}
 
   <div class="mycard">
+    <div class="mycard-2">
     <h1>{{ myplatform.nombre_plataforma }}</h1>
-    <p style="color: rgb(75 75 75);">Tipo Plataforma: {{ myplatform.tipo_servidor_plataforma }}</p>
-    <p style="color: rgb(75 75 75);">Ambiente: {{ myplatform.tipo_ambiente_plataforma }}</p>
-    <p style="color: rgb(75 75 75);">Sistema: {{ myplatform.id_sistema.nombre_sistema }}</p>
-    <p style="color: rgb(75 75 75);">Tipo Motor BDD: <br>{{ myplatform.tipo_motor_bd|default:"No Aplica"}} </p>
-    <p style="color: rgb(75 75 75);">Nombre Esquema BDD: <br> {{ myplatform.nombre_esquema_bd|default:"No Aplica"}}</p>
-    <p style="color: rgb(75 75 75);">Nombre Instancia BDD: <br> {{ myplatform.nombre_instancia_bd|default:"No Aplica"}}</p>
+    </div>
+    <p><mark>Tipo Plataforma:</mark> {{ myplatform.tipo_servidor_plataforma }}</p>
+    <p><mark>Ambiente:</mark> {{ myplatform.tipo_ambiente_plataforma }}</p>
+    <p><mark>Sistema:</mark> {{ myplatform.id_sistema.nombre_sistema }}</p>
+    <p><mark>Tipo Motor BDD:</mark> {{ myplatform.tipo_motor_bd|default:"No Aplica"}} </p>
+    <p><mark>Nombre Esquema BDD:</mark> {{ myplatform.nombre_esquema_bd|default:"No Aplica"}}</p>
+    <p><mark>Nombre Instancia BDD:</mark> {{ myplatform.nombre_instancia_bd|default:"No Aplica"}}</p>
   </div>
 
   <div class="mycard" style="background-color: whitesmoke; border-radius: 10px; text-align: center;">
     <h2 style="color: rgb(0, 0, 0);">DATOS DE SOFTWARE</h2>
-    <br>
+    <!-- <br> -->
     <table style="border-collapse: collapse;">
     <thead>
     <tr style="background-color: #f2f2f2;">
+    <th style="border-radius: 5px;">IP</th>
+    <th style="border-radius: 5px;">PUERTO</th>
     <th style="border-radius: 5px;">ENDPOINT</th>
     <th style="border-radius: 5px;">TIPO</th>
     <th style="border-radius: 5px;">URL</th>

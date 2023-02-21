@@ -96,8 +96,12 @@ def detalles(request, id_plataforma):
     # myplatform = Plataforma.objects.select_related('sw_set').all()
     myplatform = Plataforma.objects.get(id_plataforma=id_plataforma)
 
-    sw = myplatform.sw_set.all()  # Here is SW
-    ip = sw.first().ip_set.all()  # Here is ip
+    try:
+        sw = myplatform.sw_set.all()  # Here is SW
+        ip = sw.first().ip_set.all()  # Here is ip
+    except Exception:
+        sw = ''
+        ip = ''
 
     print(sw)
     print(ip)
@@ -105,6 +109,8 @@ def detalles(request, id_plataforma):
     template = loader.get_template('detalles.html')
     context = {
         'myplatform': myplatform,
+        'sw': sw,
+        'ip': ip,
 
     }
     return HttpResponse(template.render(context, request))

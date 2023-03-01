@@ -36,13 +36,13 @@
     </tr>
     </thead>
     <tbody>
-    {% for x in sw %}
+    {% for x in ip %}
     <tr style="background-color: #ffffff;">
-    <td><p style="color: rgb(75 75 75);">{{ myplatform.id_plataforma.endpoint_sw|default:"No Aplica"}}</p></td>
-    <td><p style="color: rgb(75 75 75);">{{ myplatform.id_plataforma.tipo_sw|default:"No Aplica"}}</p></td>
-    <td><p style="color: rgb(75 75 75);">{{ myplatform.id_plataforma.url_sw|default:"No Aplica"}}</p></td>
-    <td><p style="color: rgb(75 75 75);">{{ myplatform.id_plataforma.user_sw|default:"No Aplica"}}</p></td>
-    <td><p style="color: rgb(75 75 75);">{{ myplatform.id_plataforma.password_sw|default:"No Aplica"}}</p></td>
+    <td><p style="color: rgb(75 75 75);">{{ x.ip|default:"No Aplica"}}</p></td>
+    <td><p style="color: rgb(75 75 75);">{{ x.puerto|default:"No Aplica"}}</p></td>
+    <td><p style="color: rgb(75 75 75);">{{ x.id_sw.endpoint_sw|default:"No Aplica"}}</p></td>
+    <td><p style="color: rgb(75 75 75);">{{ x.id_sw.user_sw|default:"No Aplica"}}</p></td>
+    <td><p style="color: rgb(75 75 75);">{{ x.id_sw.password_sw|default:"No Aplica"}}</p></td>
     </tr>
     {% endfor %}
   </tbody>

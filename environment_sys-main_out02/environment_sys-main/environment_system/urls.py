@@ -20,4 +20,8 @@ urlpatterns = [
     path('', include('environment_app.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    
+    
+    #for debug
+    path('__debug__/', include('debug_toolbar.urls')),
 ]

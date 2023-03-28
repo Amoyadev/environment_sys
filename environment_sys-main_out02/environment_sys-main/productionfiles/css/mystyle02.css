@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font: 600 18px 'Source Sans Pro', sans-serif;
+  letter-spacing: 0.64px;
+  color: #000000;
+}
+
+.topnav {
+  background-color:#375BDC;
+  color:#ffffff;
+  padding:10px;
+}
+
+.topnav a:link, .topnav a:visited {
+  text-decoration: none;
+  color: #ffffff; 
+}
+
+.topnav a:hover, .topnav a:active {
+  text-decoration: underline;
+}
+
+.mycard {
+  background-color: #f1f1f1;
+  background-image: linear-gradient(to bottom, #375BDC, #4D70EF); 
+  background-size: 100% 130px;
+  background-repeat: no-repeat;
+  margin: 20px auto;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23); 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* centrar el texto horizontalmente */
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.hardware_table {
+  width: 100%;
+  border-collapse: collapse; /* fusionar bordes de la tabla */
+  border-spacing: 0; /* quitar espaciado entre celdas */
+  margin: 0 auto; /* centrar horizontalmente */
+}
+
+.hardware_table th, 
+.hardware_table td {
+  padding: 8px; /* añadir un poco de espaciado en las celdas */
+  border: 1px solid #ddd; /* añadir bordes a las celdas */
+  text-align: left; /* alinear texto a la izquierda */
+}
+
+.hardware_table th {
+  background-color: #375BDC; /* color de fondo del encabezado */
+  color: #fff; /* color del texto del encabezado */
+}
+
+.hardware_table tr:nth-child(even) {
+  background-color: #f2f2f2; /* color de fondo de las filas pares */
+}
+
+.hardware_table tr:hover {
+  background-color: #ddd; /* color de fondo al pasar el cursor sobre una fila */
+}
+
+button.block {
+  display: block;
+  width: 100%;
+  background-color: #375BDC;
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin: 20px auto;
+}
+
+button.block:hover {
+  background-color: #4D70EF;
+}

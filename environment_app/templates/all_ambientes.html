@@ -1,36 +1,28 @@
-
 {% extends "master.html" %}
-
+{% load static %}
 {% block title %}
   Aplicativos con ambientes QA
 {% endblock %}
 
-
 {% block content %}
-
-<!--   <div class="mycard">
-    <h1>PLATAFORMAS</h1>
-    <ul>
-        {% for x in plataformas %}
-        <li onclick="window.location = 'detalles/{{ x.id_plataforma}}'">
-          {{ x.id_plataforma }} - {{ x.nombre_plataforma }} - {{ x.id_sistema.nombre_sistema }}
-        </li>
-        {% endfor %}
-    </ul>
-  </div> -->
-
-  <table>
-    <thead>
+<div class="table-container" style="padding: 6px 3px;">
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Buscar...">
+    <a href="{% url 'download_excel' %}" class="btn btn-primary">Descargar Excel</a>
+  </div>
+  <br>
+  <table class="contenedor_principal">
+    <thead id="'tabla-encabezado'">
       <tr>
         <th>ID</th>
-        <th>Nombre Plataforma</th>
+        <th>Nombre Aplicativo</th>
         <th>Sistema</th>
         <th>Tipo Servidor</th>
         <th>Módulo</th>
         <th>SubMódulo</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="tbody tr">
       {% for x in plataformas %}
       <tr onclick="window.location = 'detalles/{{ x.id_plataforma }}'">
         <td>{{ x.id_plataforma }}</td>
@@ -46,5 +38,7 @@
       {% endfor %}
     </tbody>
   </table>
-
+</div>
+<div id="resultados-busqueda"></div>
+<script src="{% static 'js/filter.js' %}"></script>
 {% endblock %}

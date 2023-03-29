@@ -15,9 +15,13 @@
   <div class="main">
     <h1>APLICATIVOS QA</h1>
 
-    {% comment %} <h3>PLATAFORMAS</h3> {% endcomment %}
-  
-    <p>Consulta los <a href="ambienteQA/">Ambientes QA</a></p>
+    {% comment %} <h4>Bienvenido {{ user.username | upper }}</h4> {% endcomment %}
+
+    {% if request.user.is_authenticated %}
+      Bienvenido {{ user.username | upper }}, 
+    {% endif %}</p>
+      <p>Consulta los <a href="ambienteQA/">Ambientes QA</a></p>
+          
   </div>
   
 {% endblock %}
